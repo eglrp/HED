@@ -50,6 +50,7 @@ class HF_FCN(nn.Module):
         s1_1=self.dconv1_1(x)
         x=self.conv1_2(x)
         s1_2=self.dconv1_2(x)
+        x=self.maxpool(x)
         
         x=self.conv2_1(x)
         s=self.dconv2_1(x)
@@ -57,6 +58,7 @@ class HF_FCN(nn.Module):
         x=self.conv2_2(x)
         s=self.dconv2_2(x)
         s2_2=F.upsample(s,size=size,mode='bilinear',align_corners=True)
+        x=self.maxpool(x)
         
         x=self.conv3_1(x)
         s=self.dconv3_1(x)
@@ -67,6 +69,7 @@ class HF_FCN(nn.Module):
         x=self.conv3_3(x)
         s=self.dconv3_3(x)
         s3_3=F.upsample(s,size=size,mode='bilinear',align_corners=True)
+        x=self.maxpool(x)
         
         x=self.conv4_1(x)
         s=self.dconv4_1(x)
@@ -77,6 +80,7 @@ class HF_FCN(nn.Module):
         x=self.conv4_3(x)
         s=self.dconv4_3(x)
         s4_3=F.upsample(s,size=size,mode='bilinear',align_corners=True)
+        x=self.maxpool(x)
         
         x=self.conv5_1(x)
         s=self.dconv5_1(x)
