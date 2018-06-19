@@ -13,7 +13,7 @@ class HF_FCN(nn.Module):
         self.conv1_1=encoder[0:2]
         self.dconv1_1=nn.Conv2d(num_filters*2,1,1,1)
         self.conv1_2=encoder[2:4]
-        self.dconv2_1=nn.Conv2d(num_filters*2,1,1,1)
+        self.dconv1_2=nn.Conv2d(num_filters*2,1,1,1)
         # 1/2
         self.conv2_1=encoder[5:7]
         self.dconv2_1=nn.Conv2d(num_filters*4,1,1,1)
