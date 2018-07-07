@@ -121,7 +121,7 @@ class HF_res34(nn.Module):
              s30,s31,s32,s33,s34,s35,\
              s40,s41,s42]
         # score
-        score=self.score(torch.cat(cat,axis=1))
+        score=self.score(torch.cat(cat,dim=1))
         
         return score
         
